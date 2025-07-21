@@ -618,6 +618,10 @@
     </style>
 </head>
 <body>
+    <div id="special-offer-banner" style="position:fixed;top:0;left:0;width:100%;z-index:2001;background:linear-gradient(90deg,#00cec9,#6c5ce7);color:white;text-align:center;padding:18px 10px 18px 10px;font-size:1.3rem;font-weight:700;box-shadow:0 2px 10px rgba(0,0,0,0.10);display:flex;justify-content:center;align-items:center;gap:20px;">
+        <span>🎉 Special Offer: <span style='color:yellow;'>90% OFF</span> on all premium video editors! Limited time only. <span style="font-weight:400;">Now just ₹99 (was ₹990)</span></span>
+        <button id="close-offer-banner" style="background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;margin-left:20px;line-height:1;">&times;</button>
+    </div>
     <!-- Header -->
     <header>
         <div class="container">
@@ -1042,6 +1046,23 @@
                     });
                 }
             });
+        });
+
+        // Special Offer Banner Dismiss
+        const offerBanner = document.getElementById('special-offer-banner');
+        const closeOfferBtn = document.getElementById('close-offer-banner');
+        if (closeOfferBtn) {
+            closeOfferBtn.addEventListener('click', () => {
+                offerBanner.style.display = 'none';
+                // Optionally, adjust body or header margin if needed
+                document.body.style.marginTop = null;
+            });
+        }
+        // Adjust body margin to prevent overlap with header
+        window.addEventListener('DOMContentLoaded', () => {
+            if (offerBanner) {
+                document.body.style.marginTop = offerBanner.offsetHeight + 'px';
+            }
         });
     </script>
 </body>

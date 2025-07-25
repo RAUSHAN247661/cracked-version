@@ -650,6 +650,65 @@
             font-weight: 600;
             text-align: center;
         }
+        .most-popular {
+            border: 3px solid #00cec9 !important;
+            box-shadow: 0 8px 32px 0 rgba(0,206,201,0.25), 0 0 24px 4px #6c5ce7;
+            position: relative;
+            background: linear-gradient(135deg, #e0f7fa 0%, #f3e9ff 100%);
+            transform: scale(1.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: glow-popular 2s infinite alternate;
+            z-index: 2;
+        }
+        .most-popular:hover {
+            transform: scale(1.09) rotate(-1deg);
+            box-shadow: 0 16px 48px 0 rgba(0,206,201,0.35), 0 0 48px 8px #6c5ce7;
+        }
+        @keyframes glow-popular {
+            0% { box-shadow: 0 8px 32px 0 rgba(0,206,201,0.25), 0 0 24px 4px #6c5ce7; }
+            100% { box-shadow: 0 16px 48px 0 rgba(0,206,201,0.45), 0 0 48px 12px #6c5ce7; }
+        }
+        .most-popular-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg,#00cec9,#6c5ce7);
+            color: white;
+            padding: 7px 20px;
+            border-radius: 22px;
+            font-size: 1.08rem;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            animation: badge-pulse 1.2s infinite alternate;
+        }
+        .most-popular-badge .star {
+            margin-right: 8px;
+            color: gold;
+            font-size: 1.2em;
+            filter: drop-shadow(0 0 4px #fff176);
+        }
+        @keyframes badge-pulse {
+            0% { box-shadow: 0 0 8px 2px #00cec9; }
+            100% { box-shadow: 0 0 18px 6px #6c5ce7; }
+        }
+        .most-popular-badge::after {
+            content: '';
+            position: absolute;
+            left: -60%;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(120deg,rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.7) 100%);
+            transform: skewX(-25deg);
+            animation: badge-shine 2.5s infinite;
+        }
+        @keyframes badge-shine {
+            0% { left: -60%; }
+            60% { left: 120%; }
+            100% { left: 120%; }
+        }
     </style>
 </head>
 <body>
@@ -719,8 +778,11 @@
     <section class="container" id="apps">
         <h2 class="section-title">Our Cracked Apps</h2>
         <div class="apps-grid">
-            <!-- App 1 -->
-            <div class="app-card">
+            <!-- App 1: CapCut Pro (Most Popular) -->
+            <div class="app-card most-popular" style="border: 3px solid #00cec9; box-shadow: 0 8px 32px 0 rgba(0,206,201,0.25), 0 0 24px 4px #6c5ce7; position: relative; background: linear-gradient(135deg, #e0f7fa 0%, #f3e9ff 100%); transform: scale(1.06);">
+                <div style="position:absolute;top:18px;right:18px;z-index:2;">
+                    <span class="most-popular-badge"><span class="star">&#11088;</span>Most Popular</span>
+                </div>
                 <div class="app-image" style="background-image: url('capcut.jpg');" role="img" aria-label="CapCut Pro App Image"></div>
                 <div class="app-info">
                     <h3>CapCut pro </h3>
@@ -737,8 +799,7 @@
                     <a href="https://raushan247661.github.io/contact-form1/" class="btn" style="width: 100%; text-align: center;">Download </a>
                 </div>
             </div>
-
-            <!-- App 2 -->
+            <!-- App 2: Inshot Pro -->
             <div class="app-card">
                 <div class="app-image" style="background-image: url('inshot.jpg');" role="img" aria-label="Inshot Pro App Image"></div>
                 <div class="app-info">
@@ -756,8 +817,7 @@
                     <a href="https://raushan247661.github.io/contact-form1/" class="btn" style="width: 100%; text-align: center;">Download</a>
                 </div>
             </div>
-
-            <!-- App 3 -->
+            <!-- App 3: Kinemaster Pro -->
             <div class="app-card">
                 <div class="app-image" style="background-image: url('KineMaster-Blue-Pro-APK-1024x546.jpg');" role="img" aria-label="Kinemaster Pro App Image"></div>
                 <div class="app-info">
